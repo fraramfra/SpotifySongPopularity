@@ -1,0 +1,49 @@
+---
+title: "eda"
+author: "Francisco Ramirez"
+date: "2025-03-14"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+#https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset
+
+spotify <- read_csv("../data/raw/dataset.csv")
+
+unique(spotify$track_genre)
+
+spotify_sel <- spotify |> 
+  filter(track_genre %in% c("acoustic", "alternative", "reggaeton", "opera", "funk", "country", "ambient", "edm", "drum-and-bass", "folk", "rock-and-roll", "jazz", "pop", "punk")) |> 
+  mutate(duration = round(duration_ms/1000/60, 2)) |> 
+  select(artists, album_name, popularity, explicit, danceability, energy, loudness, valence, tempo, time_signature, track_genre, duration) 
+  
+
+spotify_sel
+```
+
+```{r}
+plot_scatter <- ggplot(spotify_sel, aes(x = track_genre, y = tempo, color = track_genre)) +
+  geom_violin()
+plot_scatter
+```
+
+```{r}
+colnames(spotify_sel)
+```
+
+```{r}
+write.csv(spotify_sel, "../data/processed/processed.csv")
+```
