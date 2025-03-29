@@ -6,6 +6,8 @@ This app provides insights to help music labels and emerging artists understand 
 
 The dashboard visualizes various aspects of music, including genres, characteristics (danceability, energy, valence, etc.), explicit content, and popularity levels of a wide variety of albums available on Spotify.
 
+You can find the app deployed on Posit Connect Cloud in this [link](https://0195e098-b360-07c6-5613-ec87a6dcdfe6.share.connect.posit.cloud/)
+
 ---
 
 ## App Description
@@ -30,13 +32,13 @@ To do so, the `renv` library is a prerequisite.
 1. Clone this repository:
 
     ```bash
-    git clone git@github.ubc.ca:mds-2024-25/DSCI_532_individual-assignment_fraram88.git
+    git clone git@github.com:fraramfra/SpotifySongPopularity.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd DSCI_532_individual-assignment_fraram88/
+    cd SpotifySongPopularity/
     ```
 
 3. Set up R environment based on the provided `.Rproj` and `renv.lock` file:
